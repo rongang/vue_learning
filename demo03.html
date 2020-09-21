@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+	<body>
+		<div id="app">
+			<button type="button" v-on:click="function2($event)">button</button>
+			<hr >
+			<div :style="{fontSize:postFontSize+'em'}">
+				<blog-post v-for="item in posts" v-on:button-add="function1" :post="item" :key="item.id" :add="function1"></blog-post>
+			</div>
+			<hr>
+			<div>
+				<custom-input v-model="inputText"></custom-input>
+			</div>
+			<h3>input:{{inputText}}</h3>
+		</div>
+
+
+		<script type="text/javascript">
+			Vue.component('blog-post', {
+				props: {
+					post: {},
+					buttonclick: {}
+				},
+				template: `		<div>
+			<h2>{{post.title}}</h2>
+			<button type="button" @click="$emit('button-add',0.1)">buttonAdd</button>
+		</div>`,
+				methods: {
+					add: function() {
+						this.buttonclick(0.1);
+						// console.log(this)
+						// this.$emit("button-add",0.1);
+
+					}
+				}
+			});
+			Vue.component('custom-input', {
+				props: {
+					value: {},
+					value2: {}
+				},
+				template: `
+						<div>
+						<input
+							  v-bind:value="value"
+							  v-on:input="$emit('input', $event.target.value)"
+							><br/>
+						<input
+							  v-bind:value="value2"
+							  v-on:input="$emit('input', $event.target.value2)"
+							>
+						</div>
+						  `
+			})
+			
+			var app = new Vue({
+				el: '#app',
+				data: {
+					posts: [{
+							id: 1,
+							title: 'My journey with Vue'
+						},
+						{
+							id: 2,
+							title: 'Blogging with Vue'
+						},
+						{
+							id: 3,
+							title: 'Why Vue is so fun'
+						}
+					],
+					postFontSize: 1,
+					inputText: ''
+				},
+				methods: {
+					function1: function(event) {
+						console.log(event)
+						this.postFontSize += event
+					},
+					function2: function(event) {
+						console.log(event)
+					},
+					function3: function() {
+						console.log("hello")
+					}
+				}
+			});
+		</script>
+	</body>
+</html>
