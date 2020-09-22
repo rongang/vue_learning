@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <component  v-bind:is='currentCom'>
+        <com1 v-model="checked" v-on:change="change"></com1>
+        <com2 v-bind:title="selected" v-on></com2>
+    </component>
+    </div>
+
+</body>
+<script>
+    Vue.component('com1', {
+        props: {
+            checked: false,
+        },
+        template: `<input type="checkbox" v-bind:checked="checked" v-on:change="$emit('change',$event.target.checked)"/>`
+    });
+    Vue.component('com2', {
+        props:{
+            title:String,
+        },
+        //   v-bind:value="value"
+        //   v-on:input="$emit('input', $event.target.value)"
+        template: `<input v-bind:value="title" v-on:input="$emit('input',$event.target.value)"/>`
+    });
+    let app = new Vue({
+        el: '#app',
+        data: {
+            checked: false,
+            selected: "one",
+            currentCom:'com2'
+        },
+        methods: {
+            change: function (value) {
+                console.log(value)
+            }
+        },
+    })
+</script>
+
+</html>

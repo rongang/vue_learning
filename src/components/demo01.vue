@@ -1,8 +1,12 @@
 <template>
-	<h1 class="color">{{title}} {{a}}</h1>
+<div>
+	<h1 class="w-25">{{title}} {{a}}</h1>
+</div>
+	
 </template>
 
 <script>
+
 	export default{
 		name:'dmeo01',
 		props:{

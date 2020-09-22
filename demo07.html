@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="./vue.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="./css/bootstrap.css"/>
+	</head>
+	<style type="text/css">
+		body{
+			margin: 20px;
+		}
+	</style>
+	<body>
+		<div id="app">
+			<div>
+				<div class="btn-group" role="group" aria-label="Basic example">
+				  <button type="button" class="btn btn-secondary">Left</button>
+				  <button type="button" class="btn btn-secondary">Middle</button>
+				  <button type="button" class="btn btn-secondary">Right</button>
+				</div>
+				<table class="table table-bordered">
+				<!--  <thead>
+				    <tr>
+				      <th scope="col">#</th>
+				      <th scope="col">First</th>
+				      <th scope="col">Last</th>
+				      <th scope="col">Handle</th>
+				    </tr>
+				  </thead> -->
+				  <tbody>
+				    <tr>
+				      <!-- <th scope="row">1</th> -->
+				      <td>
+						  <ul>
+						  	<li class="list-inline-item">one</li>
+						  </ul>
+					  </td>
+				      <td>Otto</td>
+				    </tr>
+				  </tbody>
+				</table>
+			</div>
+			
+		</div>
+		<script type="text/javascript">
+			Vue.component("compontent1",{
+				template:``
+			})
+			let app=new Vue({
+				el:'#app'
+			})
+		</script>
+	</body>
+
+</html>

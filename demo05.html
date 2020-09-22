@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<text-document
+			  v-bind:title="doc.title"
+			  v-on:update:title="doc.title = $event"
+			></text-document>
+
+		</div>
+		<script type="text/javascript">
+			Vue.component('text-document',{
+				props:{
+					title:{}
+				},
+				data:function(){
+					return {
+						Title:this.title
+					}
+				},
+				template:`
+						<h2 @click='click'>{{Title}}</h2>
+				`,
+				methods:{
+					click(){
+						this.Title = this.Title.split('').reverse().join('')
+					}
+				}
+			})
+			let app = new Vue({
+				el:'#app',
+				data:{
+					doc:{
+						title:'title1'
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
