@@ -19,7 +19,9 @@
 				</tbody>
 			</table>
 		</div>
-		<div v-else-if="index == 1">Middle</div>
+		<div v-else-if="index == 1">
+			middle
+		</div>
 		<div v-else>Right</div>
 	</div>
 </template>

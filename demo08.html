@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="./vue.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+	</head>
+	<style type="text/css">
+		.component-fade-enter-active, .component-fade-leave-active {
+		  transition: opacity .3s ease;
+		}
+		.component-fade-enter, .component-fade-leave-to
+		/* .component-fade-leave-active for below version 2.1.8 */ {
+		  opacity: 0;
+		}
+	</style>
+	<body>
+		<div id="transition-components-demo">
+			<button type="button" @click="change">切换</button>
+			<transition name="component-fade" mode="out-in">
+			  <component v-bind:is="view"></component>
+			</transition>
+		</div>
+		<script type="text/javascript">
+			let app = new Vue({
+			  el: '#transition-components-demo',
+			  data: {
+			    view: 'v-a'
+			  },
+			  methods:{
+				  change(){
+					  if(this.view=='v-a'){
+						  this.view = 'v-b'
+					  }else{
+						  this.view='v-a'
+					  }
+				  }
+			  },
+			  components: {
+			    'v-a': {
+			      template: '<div>Component A</div>'
+			    },
+			    'v-b': {
+			      template: '<div>Component B</div>'
+			    }
+			  }
+			});
+		</script>
+	</body>
+</html>
