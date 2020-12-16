@@ -10,29 +10,20 @@
 		<tabview></tabview>
 		<hr color="#004085" />
 		<!-- 	<googlemap>
-		<googlemapmarker v-bind:places="vueConfCities">
-			
-		</googlemapmarker>
-	</googlemap> -->
+			<googlemapmarker v-bind:places="vueConfCities">
+				
+			</googlemapmarker>
+		</googlemap> -->
 		<animated></animated>
 		<hr color="#004085" />
 		<animattion02></animattion02>
-		<component :is="underline"></component>
 		<hr color="#004085" />
 		<mixindemo></mixindemo>
 		<hr color="#004085" />
 		<directive01></directive01>
-		
-		
-		
-		
-		
-		
-		
-		
+
 		<div style="height: 100rem;"></div>
 	</div>
-	
 </template>
 
 <script>
@@ -45,9 +36,7 @@ import tabview from './components/tabview.vue';
 import animated from './components/animated/demo01.vue';
 import animattion02 from './components/animated/demo02.vue';
 import mixindemo from './components/mixin/demo01.vue';
-import directive01 from './components/directive/demo01.vue'
-
-
+import directive01 from './components/directive/demo01.vue';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
@@ -55,9 +44,6 @@ import '../css/animate.min.css';
 import 'lodash/lodash.js';
 // import 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAHbknPTCvUSgWwU0jJ68m4h6b7vpyP6hM'
 
-let underline = {
-	template: '<hr color="#004085"/>'
-};
 
 export default {
 	name: 'App',
@@ -72,7 +58,6 @@ export default {
 		animattion02,
 		mixindemo,
 		directive01,
-		underline
 	}
 };
 </script>
